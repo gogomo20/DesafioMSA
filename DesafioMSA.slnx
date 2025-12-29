@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="DesafioMSA.Application/DesafioMSA.Application.csproj" />
+  <Project Path="DesafioMSA.Domain/DesafioMSA.Domain.csproj" />
+  <Project Path="DesafioMSA.Infraestructure/DesafioMSA.Infraestructure.csproj" />
+  <Project Path="DesafioMSA.Test/DesafioMSA.Test.csproj" />
+  <Project Path="DesafioMSA/DesafioMSA.Presentation.csproj" />
+</Solution>
