@@ -39,7 +39,7 @@ namespace DesafioMSA.Application.UseCases.Clients.Commands
                     if (client is null) throw new NotFoundedExeption("O cliente informado não existe!");
                     if (await _readRepository.Any(x => x.Id != command.Id && x.Cnpj.Value == client.Cnpj.Value))
                         throw new InvalidException("O Cnpj informado já está cadastrado!");
-                    client.UpdateName(client.FantasyName);
+                    client.UpdateName(command.FantasyName);
                     client.UpdateCnpj(new Cnpj(command.Cnpj));
                     if (command.Active.HasValue)
                         client.UpdateStatus((bool)command.Active!);

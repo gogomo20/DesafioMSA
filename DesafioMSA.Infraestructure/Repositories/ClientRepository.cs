@@ -27,7 +27,7 @@ namespace DesafioMSA.Infraestructure.Repositories
                 FantasyName = x.FantasyName,
                 Cnpj = x.Cnpj.ToString(),
                 Active = x.Active
-            });
+            }).Where(x => x.Id == Id);
             var cliente = await query.SingleOrDefaultAsync();
             if (cliente != null)
                 cliente.Cnpj = new Cnpj(cliente.Cnpj).ToString();

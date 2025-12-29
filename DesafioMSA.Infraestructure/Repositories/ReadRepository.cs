@@ -28,8 +28,8 @@ namespace DesafioMSA.Infraestructure.Repositories
 
         public async Task<TEntity?> Get(long id, CancellationToken cancellation = default)
         {
-            var response = await _session.Query<TEntity>().Where(x => !x.Deleted).FirstOrDefaultAsync(x => x.Id == id);
-            return response;
+            var response = await _session.GetAsync<TEntity>(id);
+            return response.Deleted ? null : response;
         }
     }
 }

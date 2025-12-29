@@ -21,12 +21,20 @@ namespace DesafioMSA.Application.UseCases.Clients.Queries
             }
             public async Task<GenericResponse<ClientView>> Handle(GetClientByIdQuery request, CancellationToken cancellationToken)
             {
-                var response = new GenericResponse<ClientView>();
-                var cliente = await _repository.GetClientAsync(request.Id);
-                if (cliente is null) throw new NotFoundedExeption("O cliente informado não existe!");
-                response.Message = "Consulta realizada com sucesso!";
-                response.Data = cliente;
-                return response;
+                try
+                {
+                    var response = new GenericResponse<ClientView>();
+                    var cliente = await _repository.GetClientAsync(request.Id);
+                    if (cliente is null) throw new NotFoundedExeption("O cliente informado não existe!");
+                    response.Message = "Consulta realizada com sucesso!";
+                    response.Data = cliente;
+                    return response;
+                }
+                catch (Exception ex)
+                {
+
+                    throw;
+                }
             }
         }
 
